@@ -1,5 +1,9 @@
-from database import SessionLocal, engine
-from models import Base, User, Transaction
+from core.database import SessionLocal, engine
+from table_models import Base
+from table_models.transaction_model import Transaction
+from table_models.user_model import User
+from table_models.budget_model import BudgetTable
+
 
 # ✅ Force reset tables before testing
 print("🔄 Dropping all existing tables...")
@@ -37,6 +41,10 @@ for u in db.query(User).all():
 print("\n📋 Transactions:")
 for t in db.query(Transaction).all():
     print(f" - {t.id}: {t.amount} from {t.sender_id} → {t.receiver_id}")
+
+print("\n📋 Budgets (should be empty):")
+for b in db.query(BudgetTable).all():
+    print(f" - {b.id}: {b.category} limit {b.limit} spent {b.spent}")
 
 db.close()
 print("\n✅ All test cases ran successfully.")

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, func, Boolean
 from sqlalchemy.orm import relationship
-from ..core.database import Base
+from core.database import Base
 
 class User(Base):
     __tablename__ = "users"
@@ -12,4 +12,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
 
     transactions = relationship("Transaction", back_populates="user")
-    budgets = relationship("BudgetTable", back_populates="user")  # ✅
+    budgets = relationship("BudgetTable", back_populates="user")  

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from ..core.database import Base
+from core.database import Base
 
 # BudgetTable class that tells sqlalchemy what type of table to create
 class BudgetTable(Base):
@@ -11,10 +11,9 @@ class BudgetTable(Base):
     limit = Column(Float, nullable=False)
     spent = Column(Float, default=0.0)
 
-    # If you want to relate budgets to transactions you need a budget_id on the
-    # Transaction model. That isn't present currently, so omit that relationship
-    # to avoid referencing a non-existent back_populates name.
+
 
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    
     # match the `User` model class name and back_populates value
     user = relationship("User", back_populates="budgets")
