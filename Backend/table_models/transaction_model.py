@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, func, Boolean
 from sqlalchemy.orm import relationship
-from core.database import Base
+from Backend.core.database import Base
 
 
 class Transaction(Base):

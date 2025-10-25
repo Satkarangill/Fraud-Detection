@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from core.database import Base
+from Backend.core.database import Base
 
 # BudgetTable class that tells sqlalchemy what type of table to create
 class BudgetTable(Base):

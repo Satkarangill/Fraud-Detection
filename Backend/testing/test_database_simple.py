@@ -1,9 +1,9 @@
 # Simple database test script
-from core.database import SessionLocal, engine
-from table_models import budget_model, transaction_model, user_model
-from table_models.user_model import User
-from table_models.transaction_model import Transaction
-from table_models.budget_model import BudgetTable
+from Backend.core.database import SessionLocal, engine
+from Backend.table_models import budget_model, transaction_model, user_model
+from Backend.table_models.user_model import User
+from Backend.table_models.transaction_model import Transaction
+from Backend.table_models.budget_model import BudgetTable
 from sqlalchemy import text
 
 print("=== Database Connection Test ===")

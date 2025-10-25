@@ -7,10 +7,10 @@ from fastapi.security import OAuth2PasswordBearer
 from dotenv import load_dotenv
 import os
 
-from core.database import get_db
-from table_models.user_model import User
-from table_models.transaction_model import Transaction
-from table_models.budget_model import BudgetTable
+from Backend.core.database import get_db
+from Backend.table_models.user_model import User
+from Backend.table_models.transaction_model import Transaction
+from Backend.table_models.budget_model import BudgetTable
 
 # Load environment variables from .env (optional, but good practice)
 load_dotenv()

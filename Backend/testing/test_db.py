@@ -1,19 +1,19 @@
-from core.database import SessionLocal, engine
-from table_models import Base
-from table_models.transaction_model import Transaction
-from table_models.user_model import User
-from table_models.budget_model import BudgetTable
+from Backend.core.database import SessionLocal, engine
+from Backend.table_models import Base
+from Backend.table_models.transaction_model import Transaction
+from Backend.table_models.user_model import User
+from Backend.table_models.budget_model import BudgetTable
 
 
-# ✅ Force reset tables before testing
+# Force reset tables before testing
 print("🔄 Dropping all existing tables...")
 Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
-print("✅ Tables recreated.\n")
+print("Tables recreated.\n")
 
 db = SessionLocal()
 
-# ✅ Use unique test data each run
+# Use unique test data each run
 user1 = User(email="alice@example.com", hashed_password="hashed123")
 user2 = User(email="bob@example.com", hashed_password="bobpass")
 
@@ -28,7 +28,7 @@ for user in [user1, user2]:
     else:
         print(f"⚠️ {user.email} already exists, skipping")
 
-# ✅ Add test transactions
+#  Add test transactions
 txn1 = Transaction(amount=50.0, sender_id=user1.id, receiver_id=user2.id, user=user1)
 txn2 = Transaction(amount=100.0, sender_id=user2.id, receiver_id=user1.id, user=user2)
 db.add_all([txn1, txn2])
@@ -47,4 +47,4 @@ for b in db.query(BudgetTable).all():
     print(f" - {b.id}: {b.category} limit {b.limit} spent {b.spent}")
 
 db.close()
-print("\n✅ All test cases ran successfully.")
+print("\n All test cases ran successfully.")

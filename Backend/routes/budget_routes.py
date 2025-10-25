@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from core.database import get_db
-from table_models.budget_model import BudgetTable as Budget
+from Backend.core.database import get_db
+from Backend.table_models.budget_model import BudgetTable as Budget
 
 router = APIRouter(prefix="/budgets", tags=["Budgets"])
 

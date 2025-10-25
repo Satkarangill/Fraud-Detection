@@ -1,9 +1,9 @@
 # Interactive Database Explorer
 import os
 from Backend.core.database import SessionLocal
-from table_models.budget_model import BudgetTable
-from table_models.user_model import User
-from table_models.transaction_model import Transaction
+from Backend.table_models.budget_model import BudgetTable
+from Backend.table_models.user_model import User
+from Backend.table_models.transaction_model import Transaction
 from sqlalchemy import text
 
 def show_menu():
